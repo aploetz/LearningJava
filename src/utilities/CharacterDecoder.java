@@ -1,3 +1,5 @@
+package utilities;
+
 public class CharacterDecoder {
 
 	public static void main(String[] args) {
