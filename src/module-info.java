@@ -1,3 +1,0 @@
-module learningJava {
-	exports utilities;
-}

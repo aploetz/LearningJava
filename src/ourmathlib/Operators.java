@@ -48,8 +48,35 @@ public class Operators {
 		return returnVal;
 	}
 	
-	// divide
+	// divide x by y
+	public static int divide(int x, int y) {
+		if (x < y) {
+			return 0;
+		}
+		
+		int total = 0;
+		int counter = 0;
+		
+		while (total + y <= x) {
+			total = add(total,y);
+			counter++;
+		}
+		
+		return counter;
+	}
 	
 	// modulus (division, but return the remainder)
+	// modulus is ALWAYS positive!
+	public static int modulus(int x, int y) {
+		int total = 0;
+		
+		while (total + y <= x) {
+			total = add(total,y);
+		}
+		
+		int remainder = subtract(x,total);
+		
+		return remainder;
+	}
 	
 }
