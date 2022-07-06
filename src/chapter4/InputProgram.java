@@ -1,3 +1,5 @@
+package chapter4;
+
 import java.util.Scanner;
 
 public class InputProgram {
@@ -7,7 +9,7 @@ public class InputProgram {
 
 		System.out.print("What is your name? ");
 		String yourName = inputScanner.nextLine();
-		//inputScanner.close();
+		inputScanner.close();
 		
 		System.out.printf("Hello computer, my name is %s\n", yourName);
 	}
