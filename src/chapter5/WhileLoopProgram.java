@@ -6,12 +6,13 @@ public class WhileLoopProgram {
 
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
-		Boolean exit = false;
+		boolean exit = false;
 		
 		// Keep running this loop as long as exit is equal to false.
 		// Or rather, while exit is NOT equal to true.
-		while (!exit) {
+		do {
 			System.out.println("Type \"exit\" to quit.");
+			System.out.print("> ");
 			
 			// read input
 			String input = inputScanner.nextLine();
@@ -21,7 +22,7 @@ public class WhileLoopProgram {
 				// set exit to true
 				exit = true;
 			}
-		}
+		} while (!exit);
 		
 		// close the input scanner
 		inputScanner.close();
