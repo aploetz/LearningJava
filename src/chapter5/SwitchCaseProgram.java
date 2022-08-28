@@ -42,16 +42,16 @@ public class SwitchCaseProgram {
 		switch(statusNum) {
 			case 2:
 				returnVal = "PAYMENT RECEIVED";
-		break;
+				break;
 			case 3:
 				returnVal = "INVENTORY PICKED";
-		break;
+				break;
 			case 4:
 				returnVal = "SHIPPED";
-		break;
+				break;
 			case 5:
 				returnVal = "DELIVERED";
-		break;
+				break;
 			default:
 				returnVal = "PENDING";
 		}
