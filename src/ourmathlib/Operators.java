@@ -79,4 +79,25 @@ public class Operators {
 		return remainder;
 	}
 	
+	public static int exponent(int x, int y) {
+		int total = 0;
+		
+		if (y == 0) {
+			// any number taken to the power of zero == 1
+			return 1;
+		} else if (y == 1) {
+			// any number taken to the power of one == itself
+			return x;
+		} else {
+			for (int counter = 0; counter < y; counter++) {
+				if (total > 0) {
+					total = total * x;
+				} else {
+					total = x;
+				}
+			}
+			
+			return total;
+		}
+	}
 }
