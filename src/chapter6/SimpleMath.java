@@ -1,33 +1,43 @@
 package chapter6;
 
+import java.math.BigDecimal;
+
 public class SimpleMath {
 
 	public static void main(String[] args) {
-		int x = 13;
-		int y = 3;
+		int intX = 13;
+		int intY = 3;
 		
-		int addition = x + y;
-		int subtraction = x - y;
-		int multiplication = x * y;
-		int power = (int) Math.pow(x, y);
-		int division = x / y;
-		int modulo = x % y;
+		int addition = intX + intY;
+		int subtraction = intX - intY;
+		int multiplication = intX * intY;
+		int power = (int) Math.pow(intX, intY);
+		int division = intX / intY;
+		int modulo = intX % intY;
 		
-		System.out.printf("%d + %d == %d\n", x, y, addition);
-		System.out.printf("%d - %d == %d\n", x, y, subtraction);
-		System.out.printf("%d x %d == %d\n", x, y, multiplication);
-		System.out.printf("%d ^ %d == %d\n", x, y, power);
-		System.out.printf("%d " + (char)247 + " %d == %d\n", x, y, division);
-		System.out.printf("%d mod %d == %d\n", x, y, modulo);
-		System.out.printf("Is %d even? %B\n", x, isEven(x));
+		System.out.printf("%d + %d == %d\n", intX, intY, addition);
+		System.out.printf("%d - %d == %d\n", intX, intY, subtraction);
+		System.out.printf("%d x %d == %d\n", intX, intY, multiplication);
+		System.out.printf("%d ^ %d == %d\n", intX, intY, power);
+		System.out.printf("%d " + (char)247 + " %d == %d\n", intX, intY, division);
+		System.out.printf("%d mod %d == %d\n", intX, intY, modulo);
+		System.out.printf("Is %d even? %B\n", intX, isEven(intX));
 		System.out.printf("Is %d even? %B\n", subtraction, isEven(subtraction));
 
-		double a = 4.1;
-		double b = 9.7;
+		double dblA = 4.1;
+		double dblB = 9.71;
+		double dblSubtraction = dblA - dblB;
 		
-		System.out.printf("%f - %f == %f\n",a,b,a-b);
+		BigDecimal decC = new BigDecimal(.1);
+		BigDecimal decD = new BigDecimal(.2);
+		
+		// System.out.printf("%f - %f == %f\n", dblA, dblB, dblSubtraction);
+		// System.out.printf("%3.3f - %3.3f == %3.3f\n", dblA, dblB, dblSubtraction);
+		System.out.printf("%3.1f - %3.1f == %3.1f\n", dblA, dblB, dblSubtraction);
 		
 		System.out.println(.1 + .2);
+		
+		System.out.printf("%1.1f + %1.1f == %1.1f\n", decC, decD, decC.add(decD));
 	}
 
 	private static boolean isEven(int number) {
