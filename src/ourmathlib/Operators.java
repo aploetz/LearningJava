@@ -48,11 +48,6 @@ public class Operators {
 		return returnVal;
 	}
 
-	// make negative
-	private static int negative(int intX) {
-		return multiply(intX,-1);
-	}
-
 	// subtract
 	public static int subtract(int intX, int intY) {
 		int negativeY = negative(intY);
@@ -122,5 +117,10 @@ public class Operators {
 			
 			return total;
 		}
+	}
+	
+	// make negative
+	private static int negative(int intX) {
+		return multiply(intX,-1);
 	}
 }
