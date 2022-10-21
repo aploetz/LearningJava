@@ -63,16 +63,40 @@ public class Operators {
 			return 0;
 		}
 
-		if (intX < intY) {
+		if (abs(intX) < abs(intY)) {
 			return 0;
 		}
 		
 		int total = 0;
 		int counter = 0;
+		boolean xIsPositive = false;
+		boolean yIsPositive = false;
 		
-		while (total + intY <= intX) {
-			total = add(total,intY);
-			counter++;
+		if (intX > 0) {
+			xIsPositive = true;
+		} else {
+			intX = abs(intX);
+		}
+		
+		if (intY > 0) {
+			yIsPositive = true;
+		}
+
+		if (yIsPositive) {
+			while (add(total,intY) <= intX) {
+				total = add(total,intY);
+				counter++;
+			}
+		} else {
+			// negative
+			while (subtract(total,intY) <= intX) {
+				total = subtract(total,intY);
+				counter--;
+			}
+		}
+		
+		if (!xIsPositive && !yIsPositive) {
+			counter = abs(counter);
 		}
 		
 		return counter;
@@ -87,7 +111,7 @@ public class Operators {
 			// avoiding a divide by zero error
 			return 0;
 		}
-		
+			
 		while (total + intY <= intX) {
 			total = add(total,intY);
 		}
@@ -116,6 +140,14 @@ public class Operators {
 			}
 			
 			return total;
+		}
+	}
+	
+	public static int abs(int intX) {
+		if (intX > 0) {
+			return intX;
+		} else {
+			return negative(intX);
 		}
 	}
 	
