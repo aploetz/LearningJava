@@ -15,8 +15,8 @@ public class SimpleMathMethods {
 		int multiplication = Operators.multiply(intX, intY);
 		int subtraction = Operators.subtract(intX, intY);
 		int division = Operators.divide(intX, intY);
-		int modulo = Operators.modulus(intX, intY);
-		int power = Operators.exponent(intX, intY);
+		//int modulo = Operators.modulus(intX, intY);
+		//int power = Operators.exponent(intX, intY);
 
 		
 		System.out.printf("%d + %d == %d\n", intX, intY, addition);
