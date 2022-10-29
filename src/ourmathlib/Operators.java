@@ -56,67 +56,60 @@ public class Operators {
 		return returnVal;
 	}
 
-	// divide x by y
-	public static int divide(int intX, int intY) {
-		if (intY == 0) {
+	public static int divide(int dividend, int divisor) {
+		
+		if (divisor == 0) {
 			// avoiding a divide by zero error
 			return 0;
 		}
 
-		if (abs(intX) < abs(intY)) {
-			return 0;
-		}
-		
-		int total = 0;
-		int counter = 0;
-		boolean xIsPositive = false;
-		boolean yIsPositive = false;
-		
-		if (intX > 0) {
-			xIsPositive = true;
-		} else {
-			intX = abs(intX);
-		}
-		
-		if (intY > 0) {
-			yIsPositive = true;
+		boolean resultShouldBeNegative = true;
+		// determine ahead of time if the quotient should be negative
+		if ((dividend < 0 && divisor < 0) || (dividend > 0 && divisor > 0)) {
+			resultShouldBeNegative = false;
 		}
 
-		if (yIsPositive) {
-			while (add(total,intY) <= intX) {
-				total = add(total,intY);
-				counter++;
-			}
+		// for our division calculations we want to work with positive numbers
+		int absoluteDividend = abs(dividend);
+		int absoluteDivisor = abs(divisor);
+		
+		if (absoluteDividend < absoluteDivisor) {
+		// Only performing integer division, so if 
+	    // the divisor is greater than the dividend
+		// return zero
+			return 0;
+		}
+
+		int total = 0;
+		int quotient = 0;
+		
+		while (add(total,absoluteDivisor) <= absoluteDividend) {
+			total = add(total,absoluteDivisor);
+			quotient++;
+		}
+		
+		if (resultShouldBeNegative) {
+			return negative(quotient);
 		} else {
-			// negative
-			while (subtract(total,intY) <= intX) {
-				total = subtract(total,intY);
-				counter--;
-			}
+			return quotient;
 		}
-		
-		if (!xIsPositive && !yIsPositive) {
-			counter = abs(counter);
-		}
-		
-		return counter;
 	}
 	
 	// modulus (division, but return the remainder)
 	// modulus is ALWAYS positive!
-	public static int modulus(int intX, int intY) {
-		int total = 0;
+	public static int modulus(int dividend, int divisor) {
+		int quotient = 0;
 		
-		if (intY == 0) {
+		if (divisor == 0) {
 			// avoiding a divide by zero error
 			return 0;
 		}
 			
-		while (total + intY <= intX) {
-			total = add(total,intY);
+		while (quotient + divisor <= dividend) {
+			quotient = add(quotient,divisor);
 		}
 		
-		int remainder = subtract(intX,total);
+		int remainder = subtract(dividend,quotient);
 		
 		return remainder;
 	}
