@@ -104,9 +104,13 @@ public class Operators {
 			// avoiding a divide by zero error
 			return 0;
 		}
-			
-		while (quotient + divisor <= dividend) {
-			quotient = add(quotient,divisor);
+		
+		// for our modulus calculations we want to work with positive numbers
+		int absoluteDividend = abs(dividend);
+		int absoluteDivisor = abs(divisor);
+		
+		while (quotient + absoluteDivisor <= absoluteDividend) {
+			quotient = add(quotient,absoluteDivisor);
 		}
 		
 		int remainder = subtract(dividend,quotient);
