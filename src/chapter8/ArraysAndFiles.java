@@ -14,28 +14,28 @@ public class ArraysAndFiles {
 		
 		printArray(alphabet);
 
-		char[] alphabetNew = copyCharArray(alphabet);
+		char[] alphabetUpper = upperCaseCharArray(alphabet);
 
-		printArray(alphabetNew);
+		printArray(alphabetUpper);
 
 	}
 
-	private static char[] copyCharArray(char[] arrayIncoming) {
-		char[] arrayOutgoing = new char[arrayIncoming.length];
-
-		for (int intCounter = 0; intCounter < arrayIncoming.length; intCounter++ ) {
-			Character character = (Character)arrayIncoming[intCounter];
-			char characterUpper = (char)character.toUpperCase();
-		}
-
-		return arrayOutgoing;
-	}
-	
 	private static void printArray(char[] arrayIncoming) {
 		for (int intCounter = 0; intCounter < arrayIncoming.length; intCounter++ ) {
 			System.out.printf("%c", arrayIncoming[intCounter]);
 		}
 		
 		System.out.println();
+	}
+
+	private static char[] upperCaseCharArray(char[] arrayIncoming) {
+		char[] arrayUppercase = new char[arrayIncoming.length];
+
+		for (int intCounter = 0; intCounter < arrayIncoming.length; intCounter++ ) {
+			char upper = Character.toUpperCase(arrayIncoming[intCounter]);
+			arrayUppercase[intCounter] = upper;
+		}
+
+		return arrayUppercase;
 	}
 }
