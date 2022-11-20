@@ -1,8 +1,14 @@
 package chapter8;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ArraysAndFiles {
 
 	public static void main(String[] args) {
+		// arrays
+		
 		char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
 				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
 				's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -17,6 +23,18 @@ public class ArraysAndFiles {
 		char[] alphabetUpper = upperCaseCharArray(alphabet);
 
 		printArray(alphabetUpper);
+		
+		// files
+		
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("alphabetUpper.txt"));
+			writer.write(alphabetUpper);
+			writer.close();
+			
+			System.out.println("alphabetUpper has been written to alphabetUpper.txt!");
+		} catch (IOException ex) {
+			System.out.println(ex.toString());
+		}
 
 	}
 
