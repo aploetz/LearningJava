@@ -1,17 +1,16 @@
 package chapter8;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
+import java.util.TreeSet;
 
-public class ArraysAndFiles {
+public class ArraysAndCollections {
 
 	public static void main(String[] args) {
 		// arrays
@@ -31,51 +30,6 @@ public class ArraysAndFiles {
 
 		printArray(alphabetUpper);
 		
-		// files
-		
-		// writer
-		System.out.println();
-		
-		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("alphabetUpper.txt"));
-			writer.write(alphabetUpper);
-			writer.close();
-			
-			System.out.println("alphabetUpper has been written to alphabetUpper.txt!");
-		} catch (IOException exw) {
-			System.out.println(exw.toString());
-		}
-
-		// reader
-		System.out.println();
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader("data/astronauts.csv"));
-			String astronautLine = reader.readLine();
-
-			int counter = 0;
-			final int counterMax = 6;
-			
-			while (astronautLine != null && counter < counterMax) {
-				//String[] astronautColumns = astronautLine.split(",");
-				String[] astronautColumns = astronautLine.split(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)");
-				
-				String name = astronautColumns[0];
-				String dateOfBirth = astronautColumns[4];
-				String birthplace = astronautColumns[5];
-				String spaceflightHours = astronautColumns[9];
-
-				System.out.printf("%s - %s - %s - %s\n", name, dateOfBirth, birthplace, spaceflightHours);
-				
-				// read next line
-				astronautLine = reader.readLine();
-				counter++;
-			}
-			
-			reader.close();
-		} catch (IOException exr) {
-			System.out.println(exr.toString());
-		}
-
 		// array to use with sets, lists, and maps
 		String [] firstNames = {"Coriene", "Khadiya", "Avery", "Emily", "Victoria", "Emily"};
 		printArray(firstNames);
@@ -83,23 +37,30 @@ public class ArraysAndFiles {
 		// sets
 		System.out.println();
 		
-		Set<String> nameSet = new HashSet<>();
+		// Set<String> nameSet = new HashSet<>();
+		// Set<String> nameSet = new LinkedHashSet<>();
+		Set<String> nameSet = new TreeSet<>();
 		Collections.addAll(nameSet, firstNames);
 		
+		nameSet.add("Aaron");
+		printSet(nameSet);
+		
+		nameSet.remove("Aaron");
 		printSet(nameSet);
 		
 		// lists
 		System.out.println();
 
-		List<String> nameList = new ArrayList<>();
+		// List<String> nameList = new ArrayList<>();
+		List<String> nameList = new Stack<>();
 		Collections.addAll(nameList, firstNames);
 
+		nameList.add("Aaron");
+		
 		printList(nameList);
 		
 		// maps
 		System.out.println();
-
-		
 	}
 
 	private static void printList(List<String> list) {
@@ -120,7 +81,7 @@ public class ArraysAndFiles {
 
 	private static void printArray(String[] arrayIncoming) {
 		for (int intCounter = 0; intCounter < arrayIncoming.length; intCounter++ ) {
-			System.out.printf("%s", arrayIncoming[intCounter]);
+			System.out.printf("%s ", arrayIncoming[intCounter]);
 		}
 		
 		System.out.println();
