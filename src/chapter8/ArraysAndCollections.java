@@ -2,12 +2,12 @@ package chapter8;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.Stack;
 import java.util.TreeSet;
 
 public class ArraysAndCollections {
@@ -45,14 +45,16 @@ public class ArraysAndCollections {
 		nameSet.add("Aaron");
 		printSet(nameSet);
 		
+		System.out.println();
+		
 		nameSet.remove("Aaron");
 		printSet(nameSet);
 		
 		// lists
 		System.out.println();
 
-		// List<String> nameList = new ArrayList<>();
-		List<String> nameList = new Stack<>();
+		//   ArrayList
+		List<String> nameList = new ArrayList<>();
 		Collections.addAll(nameList, firstNames);
 
 		nameList.add("Aaron");
@@ -61,8 +63,37 @@ public class ArraysAndCollections {
 		
 		// maps
 		System.out.println();
+		
+		Map<String,String> stateCapitalsMap = new HashMap<>();
+		
+		stateCapitalsMap.put("Alaska", "Juneau");
+		stateCapitalsMap.put("Wisconsin", "Madison");
+		stateCapitalsMap.put("Minnesota", "St. Paul");
+		stateCapitalsMap.put("Illinois", "Springfield");
+		stateCapitalsMap.put("Michigan", "Lansing");
+		stateCapitalsMap.put("Indiana", "Indianapolis");
+		stateCapitalsMap.put("North Dakota","Bismarck");
+		stateCapitalsMap.put("Nebraska", "Lincoln");
+		stateCapitalsMap.put("South Dakota", "Pierre");
+		stateCapitalsMap.put("Iowa", "Des Moines");
+		
+		String wiCapital = stateCapitalsMap.get("Wisconsin");
+		System.out.printf("The capital of Wisconsin is %s \n", wiCapital);
+		
+		System.out.println();
+		
+		printMap(stateCapitalsMap);
 	}
 
+	private static void printMap(Map<String,String> map) {
+		System.out.println("The contents of the map are:");
+		
+		for (String key : map.keySet()) {
+			String value = map.get(key);
+			System.out.printf("%s : %s \n",key,value);
+		}
+	}
+	
 	private static void printList(List<String> list) {
 		System.out.println("The contents of the list are:");
 		
